@@ -28,14 +28,21 @@ type SavedInput = {
 };
 
 export default function SubmitForm({ serverAction }: SubmitFormProps) {
+  // to show pending state and response message
   const [state, action, pending] = useActionState(serverAction, "");
-  const [apiKey, setApiKey] = useState("");
-  const [chatIds, setChatIds] = useState("");
-  const [message, setMessage] = useState("");
-  const [listName, setListName] = useState("");
+
+  // show lists from local storage
   const [lists, setLists] = useState<SavedInput>(() =>
     loadFromLocalStorage("savedInput"),
   );
+
+  // form items
+  const [apiKey, setApiKey] = useState("");
+  const [chatIds, setChatIds] = useState("");
+  const [message, setMessage] = useState("");
+
+  // for saving distribution lists
+  const [listName, setListName] = useState("");
 
   function save() {
     const newLists = { ...lists };
@@ -92,15 +99,21 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
           onChange={(e) => setMessage(e.target.value)}
         />
         <p className="text-sm text-muted-foreground">Markdown supported.</p>
+        <Input type="file" name="file" />
         <div className="flex space-x-2 mt-4">
-          <Button type="submit" disabled={pending} className="flex-1">
+          <Button
+            type="submit"
+            variant="cta"
+            disabled={pending}
+            className="flex-1"
+          >
             {pending ? "Sending..." : "Send"}
           </Button>
         </div>
         <div className="flex justify-center space-x-2 mt-4">
           <Dialog>
             <DialogTrigger asChild>
-              <Button variant="cta" type="button">
+              <Button variant="default" type="button">
                 Save List
               </Button>
             </DialogTrigger>
