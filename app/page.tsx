@@ -1,15 +1,20 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { sendMessages } from "@/app/actions";
+import { useActionState } from "react";
 
 export default function Home() {
+  const [state, action, pending] = useActionState(sendMessages, "");
   return (
     <>
       <h1 className="text-center text-4xl">ABS Telegram</h1>
-      <form action={sendMessages}>
+      {state && <div className="text-center text-green-500 mt-4">{state}</div>}
+      <form action={action}>
         <Label className="block text-lg mt-4" htmlFor="apiKey">
           API Key
         </Label>
@@ -23,7 +28,9 @@ export default function Home() {
         </Label>
         <Textarea name="message" />
         <Separator className="my-4" />
-        <Button type="submit">Send Message</Button>
+        <Button type="submit" disabled={pending}>
+          {pending ? "Sending..." : "Send Message"}
+        </Button>
       </form>
     </>
   );
