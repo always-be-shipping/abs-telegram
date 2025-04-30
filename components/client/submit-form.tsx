@@ -63,7 +63,7 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
   return (
     <>
       <form action={action}>
-        <Label className="block text-lg mt-4" htmlFor="apiKey">
+        <Label className="block text-lg" htmlFor="apiKey">
           API Key
         </Label>
         <Input
@@ -147,7 +147,7 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
-                <DialogTitle>Load a Distribution List</DialogTitle>
+                <DialogTitle>Distribution Lists</DialogTitle>
               </DialogHeader>
               {Object.keys(lists).map((listName: string) => (
                 <DialogClose key={listName} asChild>

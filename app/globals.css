@@ -134,5 +134,5 @@ h3 {
 }
 
 h4 {
-  @apply text-lg tracking-tight sm:text-xl;
+  @apply tracking-tight sm:text-lg;
 }

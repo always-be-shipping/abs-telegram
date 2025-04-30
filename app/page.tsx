@@ -8,9 +8,11 @@ export default async function Home() {
     <div className="flex flex-col items-center justify-between h-full">
       <div>
         <h1 className="text-center">ABS Telegram</h1>
-        <p className="text-center">Send your Telegram messages with ease.</p>
+        <p className="text-center text-sm">
+          Send your Telegram messages with ease.
+        </p>
       </div>
-      <Card className="bg-neutral-200 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
+      <Card className="bg-neutral-200 w-full sm:w-1/2 md:w-2/3">
         <CardContent>
           <SubmitForm serverAction={sendMessages} />
         </CardContent>
