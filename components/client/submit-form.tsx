@@ -46,9 +46,19 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
           className="bg-background"
         />
         <p className="text-sm text-muted-foreground">Markdown supported.</p>
-        <Button type="submit" disabled={pending} className="mt-4 w-full">
-          {pending ? "Sending..." : "Send Message"}
-        </Button>
+        <div className="flex space-x-2 mt-4">
+          <Button type="submit" disabled={pending} className="flex-1">
+            {pending ? "Sending..." : "Send"}
+          </Button>
+        </div>
+        <div className="flex justify-center space-x-2 mt-4">
+          <Button variant={"cta"} type="button">
+            Save
+          </Button>
+          <Button variant={"secondary"} type="button">
+            Load
+          </Button>
+        </div>
       </form>
 
       {state && <div className="text-center text-green-500 mt-4">{state}</div>}
