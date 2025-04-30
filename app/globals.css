@@ -120,3 +120,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+h1 {
+  @apply text-3xl font-bold tracking-tight sm:text-4xl;
+}
+
+h2 {
+  @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+}
+
+h3 {
+  @apply text-xl tracking-tight sm:text-2xl;
+}
+
+h4 {
+  @apply text-lg tracking-tight sm:text-xl;
+}
