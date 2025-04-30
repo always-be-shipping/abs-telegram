@@ -18,15 +18,18 @@ export default function Home() {
         <Label className="block text-lg mt-4" htmlFor="apiKey">
           API Key
         </Label>
-        <Input name="apiKey" type="text" />
+        <Input name="apiKey" type="text" placeholder="123456789" />
         <Label className="block text-lg mt-4" htmlFor="chatIds">
           Chat IDs
         </Label>
-        <Textarea name="chatIds" />
+        <Textarea name="chatIds" placeholder="123,456,789" />
+        <p className="text-sm text-muted-foreground">
+          A comma separated list of Telegram Chat IDs
+        </p>
         <Label className="block text-lg mt-4" htmlFor="message">
           Message
         </Label>
-        <Textarea name="message" />
+        <Textarea name="message" placeholder="Hey check out my cool message" />
         <Separator className="my-4" />
         <Button type="submit" disabled={pending}>
           {pending ? "Sending..." : "Send Message"}
