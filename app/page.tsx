@@ -1,12 +1,14 @@
 "use client";
 
+import { useActionState } from "react";
+
+import { sendMessages } from "@/app/actions";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { sendMessages } from "@/app/actions";
-import { useActionState } from "react";
 
 export default function Home() {
   const [state, action, pending] = useActionState(sendMessages, "");
