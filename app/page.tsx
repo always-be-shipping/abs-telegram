@@ -15,6 +15,9 @@ export default function Home() {
   return (
     <>
       <h1 className="text-center text-4xl">ABS Telegram</h1>
+      <h2 className="text-center text-2xl">
+        Send your Telegram messages with ease.
+      </h2>
       {state && <div className="text-center text-green-500 mt-4">{state}</div>}
       <form action={action}>
         <Label className="block text-lg mt-4" htmlFor="apiKey">
@@ -37,6 +40,9 @@ export default function Home() {
           {pending ? "Sending..." : "Send Message"}
         </Button>
       </form>
+      <h3 className="text-center text-xl text-muted-foreground">
+        No data stored or logged server side.
+      </h3>
     </>
   );
 }
