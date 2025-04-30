@@ -38,10 +38,11 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
   );
 
   function save() {
-    lists[listName] = { chatIds };
+    const newLists = { ...lists };
+    newLists[listName] = { chatIds };
 
-    saveToLocalStorage("savedInput", lists);
-    setLists(lists);
+    setLists(newLists);
+    saveToLocalStorage("savedInput", newLists);
   }
 
   function load(listName: string) {
@@ -107,10 +108,17 @@ export default function SubmitForm({ serverAction }: SubmitFormProps) {
               <DialogHeader>
                 <DialogTitle>Name your Distribution List</DialogTitle>
               </DialogHeader>
-              <Input
-                type="text"
-                onChange={(e) => setListName(e.target.value)}
-              />
+              <div className="py-2 flex flex-col space-y-2">
+                <Label htmlFor="listName">List Name</Label>
+                <Input
+                  name="listName"
+                  type="text"
+                  onChange={(e) => setListName(e.target.value)}
+                />
+                <p className="text-sm text-muted-foreground">
+                  Only saved to this device.
+                </p>
+              </div>
               <DialogFooter>
                 <DialogClose asChild>
                   <Button onClick={() => save()}>Save List</Button>
